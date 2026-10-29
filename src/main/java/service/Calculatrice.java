@@ -16,4 +16,28 @@ public class Calculatrice implements ICalculatrice {
                         @WebParam(name = "b") double b) {
         return a + b;
     }
+
+    @Override
+    @WebMethod
+    public double soustraction(@WebParam(name = "a") double a,
+                               @WebParam(name = "b") double b) {
+        return a - b;
+    }
+
+    @Override
+    @WebMethod
+    public double multiplication(@WebParam(name = "a") double a,
+                                 @WebParam(name = "b") double b) {
+        return a * b;
+    }
+
+    @Override
+    @WebMethod
+    public double division(@WebParam(name = "a") double a,
+                           @WebParam(name = "b") double b) {
+        if (b == 0) {
+            throw new IllegalArgumentException("Division par zéro impossible");
+        }
+        return a / b;
+    }
 }
